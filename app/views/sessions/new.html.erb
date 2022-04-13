@@ -1,0 +1,9 @@
+<h2><u> Welcome to login page </u></h2>
+<%= form_for(:session, html: {role:"form"},url:login_path) do |f|%>
+    <%= f.label :username, :"username" %>
+    <%= f.text_field :username %><br></br>
+<%= f.label :password, "password"  %>
+<%= f.password_field :password, placeholder: "pssword" %><br></br>
+
+  <%= f.button  'login' %>
+  <% end %>

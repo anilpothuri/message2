@@ -1,0 +1,21 @@
+<center><h2><u>Welcome to home page</u> </h2></center>
+<div style="border:1px solid black;width:400px;height:400px;float:right">
+
+
+
+</div>
+
+<div  style="float-left">
+  <div  id="messages" style="border:1px solid black;width:400px;height:330px;float:left">
+    <% @messages.each do |message| %>
+     <%= message.user.username%>:<em><%= message.body %> </em><br>
+    <% end %>
+
+
+  </div></div>
+  <br></br><br></br>
+  <%= form_for(@message,html: {role:"form"},url:message_path) do |f| %>
+
+  <%= f.text_field :body %>
+  <%= f.button %>
+  <% end %>

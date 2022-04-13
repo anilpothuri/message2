@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Message2</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="ui small menu">
+        <a class="active item"><%= link_to 'ChatRoom',root_path %>
+
+        </a>
+        <a class="item">
+         Messages
+        </a>
+        <div class="right menu">
+         <div class="ui dropdown item">
+           Language <i class="dropdown icon"></i>
+           <div class="menu">
+
+             <% if logged_in? %>
+             <%= link_to 'log out',logout_path, method: :delete %>
+            <center>  <%= "Welcome to Message Me App" %> <u><%= "#{current_user.username}" %></u></center>
+             <% else %>
+              <a class="item"><%= link_to 'Login',login_path %></a>
+              <%= 'sign up' %>
+              <% end %>
+
+           </div>
+
+         </div>
+
+       </div>
+    </div>
+      <%= render 'layouts/messages' %>
+    <%= yield %>
+  </body>
+</html>
